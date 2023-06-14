@@ -1,0 +1,21 @@
+{% autoescape off %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+    < 和 > {{ jiankuohao }}
+{#    < 和 > {{ jiankuohao | safe }}#}
+    </p>
+    <p>
+    ' 和 " {{ yinhao }}
+    </p>
+    <p>
+    &符号 {{ and | safe }}
+    </p>
+</body>
+</html>
+{% endautoescape %}

@@ -1,0 +1,31 @@
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+<a href="http://localhost:63342/django_demo/security_t/templates/security_t/refer_t.html">refer测试</a>
+<!--<iframe src="http://127.0.0.1:8000/polls/1/"></iframe>-->
+<!--<iframe src="http://localhost:63342/django_demo/security_t/templates/security_t/cors_t.html?_ijt=nig0uf3sm49gq838v79kggamco&_ij_reload=RELOAD_ON_SAVE"></iframe>-->
+<!--<iframe src="https://blog.csdn.net/lady_killer9"></iframe>-->
+<style>
+    iframe {
+        width: 1440px;
+        height: 900px;
+        position: absolute;
+        top: 30px;
+        left: 450px;
+        z-index: 2;
+        -moz-opacity: 30%;
+        opacity: 30%;
+        filter: alpha(opacity=1);
+    }
+    button {
+        position: absolute;
+        top:200px;
+        left: 1680px;
+    }
+</style>
