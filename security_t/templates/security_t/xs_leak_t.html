@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        const startTime = performance.now();
+        for (let i = 0; i < 100; i++) {
+          console.log("Hi!");
+        }
+        const finishTime = performance.now();
+        console.log(`It took me ${finishTime - startTime} milliseconds to say "hi" a 1000 times!`);
+
+        // performance.now()精度高于Date.now()
+        const startTime1 = Date.now();
+        for (let i = 0; i < 100; i++) {
+          console.log("Hi!");
+        }
+        const finishTime1 = Date.now();
+        console.log(`It took me ${finishTime1 - startTime1} milliseconds to say "hi" a 1000 times!`);
+    </script>
+</head>
+<body>
+    <div>
+       xs leak
+    </div>
+</body>
+</html>
