@@ -20,5 +20,6 @@ from django.urls import include, path
 urlpatterns = [
     path("security/", include("security_t.urls")),
     path("polls/", include("polls.urls")),
+    path("chat/", include("websocket_t.urls")),
     path('admin/', admin.site.urls),
 ]

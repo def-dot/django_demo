@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.forms.models import model_to_dict
 
 from .models import Person
@@ -7,8 +7,9 @@ from .models import Person
 
 # Create your views here.
 def xss_t(request):
-    context = {"jiankuohao": "<script>alert(1);</script>", "yinhao": "' \"", "and": "&"}
-    return render(request, "security_t/xss_t.html", context)
+    response = HttpResponseRedirect("http://192.168.3.20:8080/#/homePage")
+    response.set_cookie("tokenZhunru", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2OTk0NzE5LCJqdGkiOiIzYjhlODM4NmVkMDk0M2NhOWI3NTJlOGNlMmYzNzkyNSIsInVzZXJfaWQiOjh9.OsDQsPKjacy360i7sbfbR4XWpsaG-5RRZQVMzIka0u0")
+    return response
 
 
 def csrf_t(request):
