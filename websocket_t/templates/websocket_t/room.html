@@ -13,12 +13,12 @@
 <script>
         // 获取房间名
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
-        const protocol = window.location.protocol === "http:" ? "ws:" : "wss:"
-        const host = window.location.host
-        const path = "/ws/chat/" + roomName
-        const url = protocol + host + path
-        console.log(url)
-        const webSocket = new WebSocket(url)
+        const protocol = window.location.protocol == "http:" ? "ws://" : "wss://";
+        const host = window.location.host;
+        const path = "/ws/chat/" + roomName + "/";
+        const url = protocol + host + path;
+        console.log(url);
+        const webSocket = new WebSocket(url);
         webSocket.onopen(function (e){
             document.getElementById('chat-log').value = "欢迎来到" + roomName + "，请文明发言！"
         });
