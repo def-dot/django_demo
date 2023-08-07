@@ -35,6 +35,6 @@ class ChatConsumer(WebsocketConsumer):
     def chat_message(self, event):
         message = event['message']
         data = {
-            'message': f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} {message}"
+            'message': f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}:{message}"
         }
         self.send(json.dumps(data))
