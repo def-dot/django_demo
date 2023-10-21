@@ -1,8 +1,28 @@
 import datetime
 import json
+import os
 
-from channels.generic.websocket import WebsocketConsumer
+from channels.generic.websocket import WebsocketConsumer, AsyncWebsocketConsumer
 from asgiref.sync import async_to_sync
+
+
+class InfoConsumer(AsyncWebsocketConsumer):
+    async def connect(self):
+        await self.accept()
+
+    async def disconnect(self, code):
+        pass
+
+    def get_cpu_info(self):
+        # cpu颗数
+        cmd = 'grep "physical id" /proc/cpuinfo | sort -u | wc -l'
+        p = os.popen(cmd)
+        r = p.read()
+        return r
+
+    async def receive(self, text_data=None, bytes_data=None):
+        cpu = self.get_cpu_info()
+        await self.send(cpu)
 
 
 class ChatConsumer(WebsocketConsumer):
